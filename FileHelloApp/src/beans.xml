@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- bean object mapping -->
+	<bean id="outputter" class="hello.FileOutputter">
+		<!-- field mapping -->
+		<property name="filePath" value="result.txt"/>
+
+	</bean>
+
+	<bean id="messageBean" class="hello.MessageBeanImpl">
+
+		<!-- constructor argument mapping -->
+		<constructor-arg>
+
+			<!-- argument value mapping -->
+			<value>Kim</value>
+
+
+		</constructor-arg>
+
+		<property name="greeting">
+
+			<value>Hello.</value>
+		</property>
+
+		<property name="outputter">
+
+			<!-- internal objet mapping -->
+			<ref bean="outputter" />
+
+		</property>
+
+	</bean>
+
+</beans>
